@@ -26,7 +26,7 @@ const plugin = ({ addUtilities, addVariant, e, config }) => {
   mergedPseudoElements.forEach((pelement) => {
     addVariant(pelement, ({ modifySelectors, separator }) => {
       modifySelectors(({ className }) => {
-        return `.${escape(`${pelement}${separator}${className}`)}::${pelement}`
+        return `.${escape(`${pelement}${separator}${className}`)}::${pelement}, .${escape(`${pelement}${separator}${className}`)} svg[data-fa-pseudo-element=":${pelement}"]`
       })
     })
   })
